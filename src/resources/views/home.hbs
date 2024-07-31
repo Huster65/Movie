@@ -1,1 +1,54 @@
-<h1>Home</h1>
+<div class="mt-4">
+  <div class="heading">
+    <h2 class="caption" style="color: #ff9601;">PHIM ĐỀ CỬ</h2>
+  </div>
+  <div class="row">
+    {{#each movies}}
+    <div class="col-6 col-md-4 col-lg-3 card-wrap">
+      <div class="card card-movie-item">
+        <a href="/movies/{{this.slug}}">
+          <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+        </a>
+        <div class="card-body">
+         
+          <h5 class="card-title">{{this.name}}</h5>
+          <div>
+            <a href="#" class="btn btn-primary btn-buy-movie">Mua phim</a>
+            <p class="price-tag">{{this.price}}đ</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
+
+<div class="mt-4">
+  <div class="heading">
+    <h2 class="caption" style="color: #ff9601;">PHIM ĐỀ CỬ</h2>
+  </div>
+  <div class="row">
+    {{#each movies}}
+    <div class="col-6 col-md-4 col-lg-3 card-wrap">
+      <div class="card card-movie-item">
+        <a href="/movies/{{this.slug}}">
+          <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
+        </a>
+        <div class="card-body">
+         
+          <h5 class="card-title">{{this.name}}</h5>
+          <div>
+            <a href="#" class="btn btn-primary btn-buy-movie">Mua phim</a>
+            <p class="price-tag">{{this.price}}đ</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
+

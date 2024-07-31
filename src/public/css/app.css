@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.header {
+  height: 43px; }
+
+.nav {
+  color: #fff;
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-family: roboto;
+  font-weight: 700; }
+
+.dropdown {
+  margin-right: 40px; }
+
+.app {
+  margin-top: 70px; }
+
+.logo-movie {
+  height: 34px;
+  margin-left: 37px; }
+
+/* Đảm bảo header luôn dính sát phía trên */
+body {
+  margin-top: 20px;
+  padding: 0;
+  background-color: #1a1a1a; }
+
+.caption {
+  font-size: 26px; }
+
+.card-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  /* Khoảng cách giữa các hàng */ }
+
+.card-movie-item {
+  width: 100%;
+  /* Đảm bảo chiều rộng chiếm hết không gian của cột */
+  height: 100%;
+  /* Đảm bảo chiều cao chiếm hết không gian của cột */
+  max-width: 18rem;
+  /* Kích thước cố định cho thẻ card */
+  min-height: 18rem;
+  /* Kích thước cố định cho thẻ card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s ease; }
+
+.card-movie-item:hover {
+  transform: scale(1.1); }
+
+.card-img-top {
+  height: 12rem;
+  /* Chiều cao hình ảnh cố định */
+  object-fit: cover;
+  /* Đảm bảo hình ảnh không bị biến dạng */ }
+
+.card-body {
+  flex: 1;
+  /* Đảm bảo phần thân card mở rộng để chiếm hết không gian còn lại */ }
+
+.btn-buy-movie {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #ff9601;
+  transition: all 0.3s ease; }
+
+.price-tag {
+  position: absolute;
+  bottom: 3px;
+  right: 12px;
+  font-weight: 500;
+  color: #ff9601;
+  font-size: 19px; }
+
+.btn-buy-movie:hover {
+  background-color: #ffb347;
+  transform: scale(1.1); }
+
+.card-title {
+  font-size: 17px;
+  color: #5555bd; }
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  /* Giữ navbar ở vị trí cố định */
+  top: 0;
+  /* Dính sát phía trên */
+  left: 0;
+  width: 100%;
+  /* Chiếm hết chiều rộng của trang */
+  z-index: 1000;
+  /* Đảm bảo navbar nằm trên cùng */ }
+
+.navbar .container-fluid {
+  padding: 0;
+  /* Bỏ padding mặc định */ }
+
+.navbar-brand {
+  margin: 0;
+  padding: 0; }
+
+.nav {
+  margin-right: 15px;
+  /* Khoảng cách giữa các liên kết */ }
+
+.navbar-nav {
+  margin: 0;
+  padding: 0; }
+
+.nav-link {
+  margin: 0;
+  padding: 0; }
+
+.btn-add-movie {
+  background-color: #ffb347;
+  font-weight: 500; }
+
+.btn-add-movie:hover {
+  background-color: #ffb347;
+  transform: scale(1.1); }

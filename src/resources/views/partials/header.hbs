@@ -1,30 +1,44 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Movie</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="container-fluid header">
+    <a class="navbar-brand " href="/">
+      <img src="https://phimmoichillv.net/dev/images/logo.png" alt="" class="logo-movie">
+    </a>
+    <a class="navbar-brand nav" href="/">Phim mới</a>
+    <a class="navbar-brand nav" href="/">Phim lẻ</a>
+    <a class="navbar-brand nav" href="/">Phim bộ</a>
+    <a class="navbar-brand nav" href="/">Thể loại</a>
+    <a class="navbar-brand nav" href="/">Quốc gia</a>
+    <a class="navbar-brand nav" href="/">Phim chiếu rạp</a>
+    <a class="navbar-brand nav" href="/">Trailer</a>
+    <a class="navbar-brand nav" href="/" style="color: #ff9601;">Top Phim</a>
+     
+
+
+     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            <img src="https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg" alt="" style="width: 28px; height: 28px; border-radius: 50%; margin-right: 4px">
+            Đăng nhập
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="/user/login">Đăng Nhập</a></li>
+            <li><a class="dropdown-item" href="/user/create">Đăng Ký</a></li>
+            <li><a class="dropdown-item" href="/user/create">{{username}}</a></li>
+
+            {{!-- <li><a class="dropdown-item" href="/movies/create">Đăng phim</a></li>
+            <li><a class="dropdown-item" href="me/stored/movies">Kho phim</a></li>
+            <li><a class="dropdown-item" href="me/stored/movies">Nạp tiền</a></li>
+            <li><a class="dropdown-item" href="user/list">Người dùng</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Đăng xuất</a></li> --}}
           </ul>
         </li>
+        
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+    </div> 
+    
   </div>
 </nav>
+ 

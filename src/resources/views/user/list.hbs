@@ -1,0 +1,62 @@
+<div class="mt-4">
+  <h3 style="color: aliceblue;">DANH SÁCH NGƯỜI DÙNG</h3>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên Người Dùng</th>
+        <th scope="col">Mật Khẩu</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>
+        <th scope="row">{{@index}}</th>
+        <td>{{this.username}}</td>
+        <td>{{this.password}}</td>
+        <td>
+          <a href="/user/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+          <button class="btn btn-link" onclick="confirmDelete('{{this._id}}')">Xóa</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<!-- Confirm Delete Modal -->
+<div id="delete-movie-modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa tài khoản người dùng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa tài khoản này?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="confirm-delete-btn" type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let movieIdToDelete = '';
+
+  function confirmDelete(userId) {
+    userIdToDelete = userId;
+    var deleteModal = new bootstrap.Modal(document.getElementById('delete-movie-modal'));
+    deleteModal.show();
+  }
+
+  document.getElementById('confirm-delete-btn').addEventListener('click', function() {
+    if (userIdToDelete) {
+      // Redirect to the delete endpoint with the movie ID as a query parameter
+      window.location.href = `/user/delete/${userIdToDelete}`;
+    }
+  });
+</script>

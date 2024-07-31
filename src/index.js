@@ -1,11 +1,28 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const methodOverride = require('method-override')
 const handlebars = require('express-handlebars')
+const { log } = require('console')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
+const route = require('./routes')
+const db = require('../src/config/db')
+
+// connect db
+db.connect()
+
 app.use(express.static(path.join(__dirname, 'public')))
+
+//midderware xử lý data gửi lên server
+app.use(express.urlencoded({
+  extended: true
+}))
+app.use(express.json())
+app.use(cors())
+app.use(methodOverride('_method'))
 
 // HTTP logger
 app.use(morgan('combined'))
@@ -17,12 +34,7 @@ app.engine('hbs', handlebars.engine({
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources/views'))
 
-app.get('/', (req, res) => {
-  return res.render('home')
-})
+route(app)
 
-app.get('/news', (req, res) => {
-  return res.render('news')
-})
 
 app.listen(port, () => console.log(`App is listening at port ${port}`))
