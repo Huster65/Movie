@@ -10,5 +10,7 @@ router.post('/login', userController.loginUserPost)
 router.get('/list', userController.listUser)
 router.get('/delete/:id', userController.deleteUser)
 router.get('/:id/edit', userController.editUser)
+router.put('/:id', userController.buyMovie)
+router.get('/detail/:username', userController.getUser)
 
 module.exports = router

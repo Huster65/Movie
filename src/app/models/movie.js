@@ -6,12 +6,10 @@ const Movie = new Schema({
     description: {type: String},
     image: {type: String},
     slug: {type: String},
+    category: {type: String},
     price: {type: Number},
     videoId: {type: String},
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }
+    type: {type: String}
 })
 
 module.exports = mongoose.model('Movie', Movie)

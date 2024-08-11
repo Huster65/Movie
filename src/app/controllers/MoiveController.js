@@ -23,15 +23,46 @@ class MovieController {
     }
 
     //movies/post
-    async posts(req, res, next){
+    async posts(req, res, next) {
         try {
-            const posts = await Movie.find({})
-            res.json({success: true, posts})
+            // Lấy giá trị page, size và search từ query parameters
+            const page = parseInt(req.query.page) || 1;
+            const size = parseInt(req.query.size) || 16;
+            const search = req.query.search; // Không có mặc định, chỉ lấy khi được truyền vào
+    
+            // Tính toán skip để bỏ qua các kết quả không cần thiết
+            const skip = (page - 1) * size;
+    
+            // Tạo đối tượng filter, chỉ thêm điều kiện tìm kiếm nếu search không rỗng hoặc undefined
+            const filter = search
+                ? { name: { $regex: search, $options: 'i' } } // Tìm kiếm theo tên không phân biệt hoa/thường
+                : {};
+    
+            // Lấy tổng số lượng bài viết khớp với filter
+            const totalPosts = await Movie.countDocuments(filter);
+    
+            // Lấy các bài viết với skip và limit, và áp dụng filter
+            const posts = await Movie.find(filter)
+                .skip(skip)
+                .limit(size);
+    
+            // Trả về kết quả với thông tin phân trang
+            res.json({
+                success: true,
+                posts,
+                pagination: {
+                    totalPosts,
+                    currentPage: page,
+                    totalPages: Math.ceil(totalPosts / size),
+                    pageSize: size,
+                },
+            });
         } catch (error) {
             console.log(error);
-            res.status(500).json({ success: false, message: 'Internal server error'})
+            res.status(500).json({ success: false, message: 'Internal server error' });
         }
     }
+    
 
 
     // GET
