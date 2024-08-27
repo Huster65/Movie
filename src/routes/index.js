@@ -3,6 +3,7 @@ const siteRouter = require('./site')
 const movieRouter = require('./movies')
 const meRouter = require('./me')
 const userRouter = require('./user')
+const ratingRouter = require('./rating')
 function route(app) {
 
     app.use('/user', userRouter)
@@ -14,7 +15,8 @@ function route(app) {
     app.use('/me', meRouter)
 
     app.use('/', siteRouter)
-    
+
+    // app.use('/rating', ratingRouter)
      
 }
 

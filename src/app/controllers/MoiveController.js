@@ -1,4 +1,5 @@
 const Movie = require('../models/movie')
+const Rating = require('../models/rating')
 const {mongooseToObject} = require('../../util/mongoose')
 
 class MovieController {
@@ -12,7 +13,6 @@ class MovieController {
             })
             .catch(next)
     }
-
     // movies/:id     get movie
     async getMovie(req, res, next){
         Movie.findOne({_id : req.params.id})
